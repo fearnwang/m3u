@@ -1,0 +1,18 @@
+name: Auto Sync Fork
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # runs every day at 3 AM UTC
+  workflow_dispatch:       # allows manual run
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync fork
+        uses: tgymnich/fork-sync@v2
+        with:
+          owner: YanG-1989
+          repo: m3u
+          base: main
+          head: main
